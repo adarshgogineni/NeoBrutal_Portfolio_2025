@@ -23,17 +23,29 @@ export function Contact() {
     setSubmitStatus('idle');
 
     try {
-      // Send email using mailto link (fallback method)
-      const subject = encodeURIComponent(`Portfolio Contact: ${formData.name}`);
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      );
-      const mailtoLink = `mailto:adarshgogineni@gmail.com?subject=${subject}&body=${body}`;
+      // Using Web3Forms API (free email service)
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '06c0b78a-fe06-4fdd-920c-fc7e7ee88050', // You'll need to get this from web3forms.com
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Portfolio Contact from ${formData.name}`,
+        }),
+      });
 
-      window.location.href = mailtoLink;
+      const result = await response.json();
 
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
@@ -123,14 +135,21 @@ export function Contact() {
                 {isSubmitting ? 'Opening Email...' : 'Send Message →'}
               </button>
               {submitStatus === 'success' && (
-                <p className="text-green-700 font-jua text-center mt-2">
-                  Your email client should open shortly!
-                </p>
+                <div className="mt-4 p-4 bg-neon-green border-4 border-black">
+                  <p className="font-jua text-center text-black text-lg">
+                    ✅ Message sent successfully! I'll get back to you soon.
+                  </p>
+                </div>
               )}
               {submitStatus === 'error' && (
-                <p className="text-red-700 font-jua text-center mt-2">
-                  Something went wrong. Please email directly at adarshgogineni@gmail.com
-                </p>
+                <div className="mt-4 p-4 bg-red-300 border-4 border-black">
+                  <p className="font-jua text-center text-black">
+                    ❌ Failed to send. Please email me directly at{' '}
+                    <a href="mailto:adarshgogineni@gmail.com" className="underline font-bold">
+                      adarshgogineni@gmail.com
+                    </a>
+                  </p>
+                </div>
               )}
             </form>
           </div>
