@@ -185,9 +185,9 @@ export function Contact() {
                   Let's Collaborate!
                 </h3>
                 <p className="font-jua text-lg">
-                  I'm always excited to work on new projects and collaborate with creative minds.
-                  Whether you need a stunning website, a sleek app, or design consultation,
-                  I'm here to help bring your ideas to life.
+                  I'm passionate about building intelligent systems and solving complex data challenges.
+                  Whether you need ML model development, data pipeline engineering, or AI solution architecture,
+                  I'm here to help transform your data into actionable insights and scalable AI products.
                 </p>
               </div>
             </div>
