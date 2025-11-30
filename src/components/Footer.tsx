@@ -14,7 +14,7 @@ export function Footer() {
           <div className="font-jua text-center md:text-right">
             <p>© {currentYear} All rights reserved.</p>
             <p className="text-sm opacity-80">
-              Designed with <span className="text-neon-pink">💖</span> and Neo-Brutalism
+              Designed with <span className="text-neon-pink">❤️</span> and Neo-Brutalism
             </p>
           </div>
         </div>
