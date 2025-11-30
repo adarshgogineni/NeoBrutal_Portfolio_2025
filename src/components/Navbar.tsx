@@ -15,8 +15,8 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
-          <a href="#home" className="font-jetbrains font-extrabold text-xl md:text-2xl">
-            <span className="bg-neon-pink border-2 border-black px-3 py-1 rotate-[-2deg] inline-block shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:rotate-0 hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer">
+          <a href="#home" className="font-jetbrains font-extrabold text-base sm:text-xl md:text-2xl">
+            <span className="bg-neon-pink border-2 border-black px-2 sm:px-3 py-1 rotate-[-2deg] inline-block shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:rotate-0 hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer">
               Adarsh Gogineni's Portfolio
             </span>
           </a>
