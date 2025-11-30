@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import resumePDF from '../assets/resume.pdf';
 
 const socialLinks = [
   { name: 'GitHub', url: 'https://github.com/adarshgogineni', icon: '💻' },
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/adarshgogineni', icon: '💼' },
-  { name: 'Twitter', url: 'https://twitter.com', icon: '🐦' },
   { name: 'Email', url: 'mailto:adarshgogineni@gmail.com', icon: '📧' },
+  { name: 'Download Resume', url: resumePDF, icon: '📄', download: true },
 ];
 
 export function Contact() {
@@ -13,13 +14,32 @@ export function Contact() {
     email: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! (This is a demo)');
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Send email using mailto link (fallback method)
+      const subject = encodeURIComponent(`Portfolio Contact: ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      );
+      const mailtoLink = `mailto:adarshgogineni@gmail.com?subject=${subject}&body=${body}`;
+
+      window.location.href = mailtoLink;
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -97,10 +117,21 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="w-full font-k2d font-extrabold text-xl px-6 py-4 bg-black text-white border-4 border-black hover:bg-neon-green hover:text-black transition-all hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+                disabled={isSubmitting}
+                className="w-full font-k2d font-extrabold text-xl px-6 py-4 bg-black text-white border-4 border-black hover:bg-neon-green hover:text-black transition-all hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message →
+                {isSubmitting ? 'Opening Email...' : 'Send Message →'}
               </button>
+              {submitStatus === 'success' && (
+                <p className="text-green-700 font-jua text-center mt-2">
+                  Your email client should open shortly!
+                </p>
+              )}
+              {submitStatus === 'error' && (
+                <p className="text-red-700 font-jua text-center mt-2">
+                  Something went wrong. Please email directly at adarshgogineni@gmail.com
+                </p>
+              )}
             </form>
           </div>
 
@@ -117,8 +148,7 @@ export function Contact() {
                     <a
                       key={link.name}
                       href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      {...(link.download ? { download: 'Adarsh_Gogineni_Resume.pdf' } : { target: '_blank', rel: 'noopener noreferrer' })}
                       className="font-k2d font-bold text-lg px-4 py-3 bg-white border-4 border-black hover:bg-neon-pink transition-all hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center"
                     >
                       <span className="text-2xl block mb-1">{link.icon}</span>
