@@ -14,13 +14,13 @@ export function Hero() {
     setBounceKey(prev => prev + 1);
   };
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20 md:pt-24">
+    <section id="home" className="min-h-screen flex items-center pt-20 md:pt-24 bg-white dark:bg-gray-900 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6">
             <div className="font-jetbrains font-extrabold">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-2">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-2 dark:text-white">
                 Hello! <span
                   key={waveKey}
                   onClick={restartWaveAnimation}
@@ -32,14 +32,14 @@ export function Hero() {
               </h1>
             </div>
 
-            <div className="font-jua text-2xl sm:text-3xl md:text-4xl space-y-2">
+            <div className="font-jua text-2xl sm:text-3xl md:text-4xl space-y-2 dark:text-white">
               <p>Hey! I'm Adarsh,</p>
               <p className="text-lg sm:text-xl md:text-2xl opacity-80">I'm focused on...</p>
             </div>
 
             {/* Role Badge */}
             <div className="relative inline-block">
-              <div className="bg-purple-600 text-white font-jetbrains font-extrabold px-8 py-4 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rotate-[-2deg] hover:rotate-0 transition-transform">
+              <div className="bg-purple-600 dark:bg-neon-purple text-white font-jetbrains font-extrabold px-8 py-4 border-4 border-black dark:border-neon-green shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(232,255,168,1)] rotate-[-2deg] hover:rotate-0 transition-transform">
                 <p className="text-xl sm:text-2xl">AI & Machine Learning</p>
                 <p className="text-xl sm:text-2xl">Data Science & Data Engineering</p>
                 <p className="text-xl sm:text-2xl">AI Engineering</p>
@@ -50,13 +50,13 @@ export function Hero() {
             <div className="flex flex-wrap gap-4 pt-4">
               <a
                 href="#projects"
-                className="font-k2d font-extrabold text-lg px-6 py-3 bg-neon-green border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
+                className="font-k2d font-extrabold text-lg px-6 py-3 bg-neon-green dark:bg-neon-cyan border-4 border-black dark:border-neon-green shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(232,255,168,1)] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[8px_8px_0px_0px_rgba(232,255,168,1)] transition-all"
               >
                 View Projects
               </a>
               <a
                 href="#contact"
-                className="font-k2d font-extrabold text-lg px-6 py-3 bg-neon-purple border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
+                className="font-k2d font-extrabold text-lg px-6 py-3 bg-neon-purple dark:bg-neon-pink border-4 border-black dark:border-neon-green shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(232,255,168,1)] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[8px_8px_0px_0px_rgba(232,255,168,1)] transition-all dark:text-white"
               >
                 Contact Me
               </a>
@@ -64,7 +64,7 @@ export function Hero() {
                 href={resumePDF}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-k2d font-extrabold text-lg px-6 py-3 bg-neon-orange border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
+                className="font-k2d font-extrabold text-lg px-6 py-3 bg-neon-orange dark:bg-neon-yellow border-4 border-black dark:border-neon-green shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(232,255,168,1)] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[8px_8px_0px_0px_rgba(232,255,168,1)] transition-all"
               >
                 Resume
               </a>
@@ -75,10 +75,10 @@ export function Hero() {
           <div className="flex justify-center md:justify-end">
             <div className="relative">
               {/* Shadow effect */}
-              <div className="absolute inset-0 bg-black translate-x-4 translate-y-4"></div>
+              <div className="absolute inset-0 bg-black dark:bg-neon-green translate-x-4 translate-y-4"></div>
               {/* Main photo container */}
-              <div className="relative border-4 border-black bg-cyan-400 p-4 w-72 sm:w-80 md:w-96">
-                <div className="aspect-[3/4] bg-gray-300 border-4 border-black overflow-hidden">
+              <div className="relative border-4 border-black dark:border-neon-green bg-cyan-400 dark:bg-purple-600 p-4 w-72 sm:w-80 md:w-96">
+                <div className="aspect-[3/4] bg-gray-300 border-4 border-black dark:border-neon-green overflow-hidden">
                   <img
                     src={profileImage}
                     alt="Adarsh Gogineni"
@@ -86,8 +86,8 @@ export function Hero() {
                   />
                 </div>
                 {/* Name tag */}
-                <div className="mt-4 bg-neon-pink border-4 border-black p-3 text-center">
-                  <p className="font-jetbrains font-bold text-xl">Adarsh Gogineni</p>
+                <div className="mt-4 bg-neon-pink dark:bg-neon-purple border-4 border-black dark:border-neon-green p-3 text-center">
+                  <p className="font-jetbrains font-bold text-xl dark:text-white">Adarsh Gogineni</p>
                 </div>
               </div>
               {/* Decorative pixel heart */}
