@@ -62,14 +62,14 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="min-h-screen py-20 bg-white">
+    <section id="contact" className="min-h-screen py-20 bg-white dark:bg-gray-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-12">
-          <h2 className="font-jetbrains font-extrabold text-4xl sm:text-5xl md:text-6xl mb-4 inline-block bg-neon-green border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rotate-[-1deg]">
+          <h2 className="font-jetbrains font-extrabold text-4xl sm:text-5xl md:text-6xl mb-4 inline-block bg-neon-green dark:bg-neon-pink border-4 border-black dark:border-neon-green px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(232,255,168,1)] rotate-[-1deg] dark:text-white">
             Get in Touch
           </h2>
-          <p className="font-jua text-xl sm:text-2xl mt-8 max-w-2xl">
+          <p className="font-jua text-xl sm:text-2xl mt-8 max-w-2xl dark:text-white">
             Have a project in mind? Let's work together to create something amazing!
           </p>
         </div>
@@ -77,13 +77,13 @@ export function Contact() {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="relative">
-            <div className="absolute inset-0 bg-black translate-x-4 translate-y-4"></div>
+            <div className="absolute inset-0 bg-black dark:bg-neon-green translate-x-4 translate-y-4"></div>
             <form
               onSubmit={handleSubmit}
-              className="relative bg-neon-pink border-4 border-black p-8 space-y-6"
+              className="relative bg-neon-pink dark:bg-purple-600 border-4 border-black dark:border-neon-green p-8 space-y-6"
             >
               <div>
-                <label className="font-jetbrains font-bold text-lg mb-2 block">
+                <label className="font-jetbrains font-bold text-lg mb-2 block dark:text-white">
                   Name
                 </label>
                 <input
@@ -92,13 +92,13 @@ export function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-4 border-black font-jua text-lg focus:outline-none focus:ring-4 focus:ring-neon-green"
+                  className="w-full px-4 py-3 border-4 border-black dark:border-neon-green font-jua text-lg focus:outline-none focus:ring-4 focus:ring-neon-green dark:bg-gray-800 dark:text-white"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label className="font-jetbrains font-bold text-lg mb-2 block">
+                <label className="font-jetbrains font-bold text-lg mb-2 block dark:text-white">
                   Email
                 </label>
                 <input
@@ -107,13 +107,13 @@ export function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-4 border-black font-jua text-lg focus:outline-none focus:ring-4 focus:ring-neon-green"
+                  className="w-full px-4 py-3 border-4 border-black dark:border-neon-green font-jua text-lg focus:outline-none focus:ring-4 focus:ring-neon-green dark:bg-gray-800 dark:text-white"
                   placeholder="your.email@example.com"
                 />
               </div>
 
               <div>
-                <label className="font-jetbrains font-bold text-lg mb-2 block">
+                <label className="font-jetbrains font-bold text-lg mb-2 block dark:text-white">
                   Message
                 </label>
                 <textarea
@@ -122,7 +122,7 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border-4 border-black font-jua text-lg focus:outline-none focus:ring-4 focus:ring-neon-green resize-none"
+                  className="w-full px-4 py-3 border-4 border-black dark:border-neon-green font-jua text-lg focus:outline-none focus:ring-4 focus:ring-neon-green resize-none dark:bg-gray-800 dark:text-white"
                   placeholder="Tell me about your project..."
                 />
               </div>
@@ -130,20 +130,20 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full font-k2d font-extrabold text-xl px-6 py-4 bg-black text-white border-4 border-black hover:bg-neon-green hover:text-black transition-all hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full font-k2d font-extrabold text-xl px-6 py-4 bg-black dark:bg-neon-purple text-white border-4 border-black dark:border-neon-green hover:bg-neon-green dark:hover:bg-neon-green hover:text-black transition-all hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[6px_6px_0px_0px_rgba(232,255,168,1)] disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Opening Email...' : 'Send Message →'}
               </button>
               {submitStatus === 'success' && (
-                <div className="mt-4 p-4 bg-neon-green border-4 border-black">
-                  <p className="font-jua text-center text-black text-lg">
+                <div className="mt-4 p-4 bg-neon-green dark:bg-green-600 border-4 border-black dark:border-neon-green">
+                  <p className="font-jua text-center text-black dark:text-white text-lg">
                     ✅ Message sent successfully! I'll get back to you soon.
                   </p>
                 </div>
               )}
               {submitStatus === 'error' && (
-                <div className="mt-4 p-4 bg-red-300 border-4 border-black">
-                  <p className="font-jua text-center text-black">
+                <div className="mt-4 p-4 bg-red-300 dark:bg-red-600 border-4 border-black dark:border-neon-green">
+                  <p className="font-jua text-center text-black dark:text-white">
                     ❌ Failed to send. Please email me directly at{' '}
                     <a href="mailto:adarshgogineni@gmail.com" className="underline font-bold">
                       adarshgogineni@gmail.com
@@ -157,9 +157,9 @@ export function Contact() {
           {/* Social Links & Info */}
           <div className="space-y-8">
             <div className="relative">
-              <div className="absolute inset-0 bg-black translate-x-4 translate-y-4"></div>
-              <div className="relative bg-cyan-300 border-4 border-black p-8">
-                <h3 className="font-jetbrains font-extrabold text-2xl mb-6">
+              <div className="absolute inset-0 bg-black dark:bg-neon-green translate-x-4 translate-y-4"></div>
+              <div className="relative bg-cyan-300 dark:bg-cyan-600 border-4 border-black dark:border-neon-green p-8">
+                <h3 className="font-jetbrains font-extrabold text-2xl mb-6 dark:text-white">
                   Connect With Me
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
@@ -168,7 +168,7 @@ export function Contact() {
                       key={link.name}
                       href={link.url}
                       {...(link.download ? { download: 'Adarsh_Gogineni_Resume.pdf' } : { target: '_blank', rel: 'noopener noreferrer' })}
-                      className="font-k2d font-bold text-lg px-4 py-3 bg-white border-4 border-black hover:bg-neon-pink transition-all hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center"
+                      className="font-k2d font-bold text-lg px-4 py-3 bg-white dark:bg-gray-800 border-4 border-black dark:border-neon-green hover:bg-neon-pink dark:hover:bg-neon-purple transition-all hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(232,255,168,1)] text-center dark:text-white"
                     >
                       <span className="text-2xl block mb-1">{link.icon}</span>
                       {link.name}
@@ -179,12 +179,12 @@ export function Contact() {
             </div>
 
             <div className="relative">
-              <div className="absolute inset-0 bg-black translate-x-4 translate-y-4"></div>
-              <div className="relative bg-yellow-300 border-4 border-black p-8">
-                <h3 className="font-jetbrains font-extrabold text-2xl mb-4">
+              <div className="absolute inset-0 bg-black dark:bg-neon-green translate-x-4 translate-y-4"></div>
+              <div className="relative bg-yellow-300 dark:bg-yellow-600 border-4 border-black dark:border-neon-green p-8">
+                <h3 className="font-jetbrains font-extrabold text-2xl mb-4 dark:text-white">
                   Let's Collaborate!
                 </h3>
-                <p className="font-jua text-lg">
+                <p className="font-jua text-lg dark:text-gray-100">
                   I'm passionate about building intelligent systems and solving complex data challenges.
                   Whether you need ML model development, data pipeline engineering, or AI solution architecture,
                   I'm here to help transform your data into actionable insights and scalable AI products.
