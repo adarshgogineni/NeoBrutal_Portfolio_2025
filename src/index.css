@@ -19,14 +19,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none;
 }
 
-* {
-  cursor: none !important;
+/* Hide default cursor only on desktop */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+
+  * {
+    cursor: none !important;
+  }
 }
 
-/* Custom cursor */
+/* Custom cursor - only show on desktop */
 .custom-cursor {
   position: fixed;
   width: 24px;
@@ -38,6 +44,13 @@ body {
   filter: drop-shadow(3px 3px 0px rgba(0, 0, 0, 1)) drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.7));
   border: 2px solid rgba(0, 0, 0, 0.3);
   transition: background 0.3s ease, filter 0.3s ease, border-color 0.3s ease;
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor {
+    display: block;
+  }
 }
 
 .dark .custom-cursor {
