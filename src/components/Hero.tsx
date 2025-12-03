@@ -13,6 +13,18 @@ export function Hero() {
   const restartBounceAnimation = () => {
     setBounceKey(prev => prev + 1);
   };
+
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const element = document.querySelector(targetId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 md:pt-24 bg-white dark:bg-gray-900 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -50,12 +62,14 @@ export function Hero() {
             <div className="flex flex-wrap gap-4 pt-4">
               <a
                 href="#projects"
+                onClick={(e) => handleSmoothScroll(e, '#projects')}
                 className="font-k2d font-extrabold text-lg px-6 py-3 bg-neon-green dark:bg-neon-cyan border-4 border-black dark:border-neon-green shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(232,255,168,1)] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[8px_8px_0px_0px_rgba(232,255,168,1)] transition-all"
               >
                 View Projects
               </a>
               <a
                 href="#contact"
+                onClick={(e) => handleSmoothScroll(e, '#contact')}
                 className="font-k2d font-extrabold text-lg px-6 py-3 bg-neon-purple dark:bg-neon-pink border-4 border-black dark:border-neon-green shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(232,255,168,1)] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[8px_8px_0px_0px_rgba(232,255,168,1)] transition-all dark:text-white"
               >
                 Contact Me
