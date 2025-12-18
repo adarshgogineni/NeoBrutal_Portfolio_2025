@@ -8,6 +8,14 @@ const projects = [
     link: "https://paperpal-iq.vercel.app/",
   },
   {
+    title: 'InnerCompass',
+    description: 'AI-powered journaling app with intelligent mood analysis, theme extraction, and personalized reflection prompts. Features LLM-driven insights and actionable micro-actions using OpenAI GPT.',
+    tags: ['Next.js', 'TypeScript', 'OpenAI', 'Supabase', 'AI/ML'],
+    color: 'bg-cyan-300',
+    darkColor: 'dark:bg-cyan-600',
+    link: 'https://inner-compass-navy.vercel.app/',
+  },
+  {
     title: 'GitaGPT',
     description: 'Bhagavad Gita chatbot powered by RAG (Retrieval-Augmented Generation) with ChromaDB vector search, GPT-3.5, and a chat interface.',
     tags: ['Next.js', 'FastAPI', 'ChromaDB', 'OpenAI'],
@@ -38,14 +46,6 @@ const projects = [
     color: 'bg-green-300',
     darkColor: 'dark:bg-green-600',
     link: 'https://github.com/adarshgogineni/WasteWizard',
-  },
-  {
-    title: 'Portfolio Website',
-    description: 'A bold, neo-brutalist portfolio showcasing creative work.',
-    tags: ['React', 'Vite', 'Figma'],
-    color: 'bg-cyan-300',
-    darkColor: 'dark:bg-cyan-600',
-    link: 'https://github.com/adarshgogineni/NeoBrutal_Portfolio_2025',
   },
 ];
 
